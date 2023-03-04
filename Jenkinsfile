@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             steps {
-                sh 'sudo docker build --no-cache -t my-docker-image .'
+                sh 'docker build --no-cache -t my-docker-image .'
             }
         }
         stage('Run Docker Container') {
             steps {
-                sh 'sudo docker run --name my-docker-container -d my-docker-image'
+                sh 'docker run --name my-docker-container -d my-docker-image'
             }
         }
     }
