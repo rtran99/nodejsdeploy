@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - npm install
+
+  build:
+    commands:
+      - npm run build
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'dist'
+  discard-paths: yes
+  bucket-name: ronytranbucket
+  region: us-east-1
+  artifact-name: my-nodejs-app.zip
