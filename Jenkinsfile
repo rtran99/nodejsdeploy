@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    environment { DOCKER_HOST = 'unix:///var/run/docker.sock' }
     stages {
         stage('Build Docker Image') {
             steps {
@@ -8,7 +9,7 @@ pipeline {
         }
         stage('Run Docker Container') {
             steps {
-                sh 'docker run --privileged -d -p 80:3000 my-docker-image'
+                sh 'docker run --name my-docker-container -d my-docker-image'
             }
         }
     }
