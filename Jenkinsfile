@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Run Docker Container') {
             steps {
-                sh 'docker run --name my-docker-container -d my-docker-image'
+                sh 'docker run --user root --name my-docker-container -d my-docker-image'
             }
         }
     }
